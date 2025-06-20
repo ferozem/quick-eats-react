@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState } from "react";
+import { useAppContext } from "../context/AppContext";
 import { motion } from "framer-motion";
 
 const restaurantData = {
@@ -73,6 +74,24 @@ const Restaurant = () => {
   const restaurant = restaurantData[id];
   const [selectedCategory, setSelectedCategory] = useState("Starters");
   const [cart, setCart] = useState([]);
+  const { cartItems, setCartItems } = useAppContext();
+
+  const handleAddToCart = (dish) => {
+    setCart([...cart, dish]);
+
+    const existing = cartItems.find((item) => item.name === dish.name);
+    if (existing) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.name === dish.name
+            ? { ...item, quantity: (item.quantity || 1) + 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...dish, quantity: 1 }]);
+    }
+  };
 
   if (!restaurant) return <div className="p-6">Restaurant not found.</div>;
 
@@ -134,7 +153,7 @@ const Restaurant = () => {
               <h4 className="font-semibold text-gray-800">{dish.name}</h4>
               <p className="text-sm text-gray-500">₹ {dish.price}</p>
               <button
-                onClick={() => setCart([...cart, dish])}
+                onClick={() => handleAddToCart(dish)}
                 className="mt-2 text-sm px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
               >
                 Add to Cart
