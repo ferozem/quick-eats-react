@@ -28,3 +28,25 @@ Fix:
     
 Issue 2: Taiwind css not working
 Update index.css with @import "tailwindcss";
+
+## Deployment to GitHub Pages
+
+The project includes a GitHub Actions workflow that builds the Vite app and
+publishes the contents of the `dist` directory to GitHub Pages. Routing works
+thanks to a `404.html` file that redirects unknown paths back to the SPA.
+
+To deploy:
+
+1. Ensure the repository name matches the configured Vite `base` option:
+   `/quick-eats-react/`.
+2. Push changes to the `main` branch. The workflow will build the project and
+   automatically deploy to the `gh-pages` environment.
+
+If you need to run the build locally you can execute:
+
+```bash
+npm install
+npm run build
+```
+
+The static files will appear in the `dist` folder.
