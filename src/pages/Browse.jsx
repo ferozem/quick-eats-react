@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const restaurants = [
   {
-    id:1,
+    id: 1,
     name: 'Spicy Biryani',
     cuisine: 'Indian',
     rating: 4.5,
@@ -12,7 +12,8 @@ const restaurants = [
     time: 30,
     image: 'https://source.unsplash.com/400x300/?biryani'
   },
-  {id:2,
+  {
+    id: 2,
     name: 'Pizza Paradise',
     cuisine: 'Italian',
     rating: 4.3,
@@ -20,8 +21,8 @@ const restaurants = [
     time: 25,
     image: 'https://source.unsplash.com/400x300/?pizza'
   },
- {
-    id:1,
+  {
+    id: 3,
     name: 'Spicy Biryani',
     cuisine: 'Indian',
     rating: 4.5,
@@ -29,15 +30,17 @@ const restaurants = [
     time: 30,
     image: 'https://source.unsplash.com/400x300/?biryani'
   },
-  {id:2,
+  {
+    id: 4,
     name: 'Pizza Paradise',
     cuisine: 'Italian',
     rating: 4.3,
     price: '$$$',
     time: 25,
     image: 'https://source.unsplash.com/400x300/?pizza'
-  },{
-    id:1,
+  },
+  {
+    id: 5,
     name: 'Spicy Biryani',
     cuisine: 'Indian',
     rating: 4.5,
@@ -45,15 +48,17 @@ const restaurants = [
     time: 30,
     image: 'https://source.unsplash.com/400x300/?biryani'
   },
-  {id:2,
+  {
+    id: 6,
     name: 'Pizza Paradise',
     cuisine: 'Italian',
     rating: 4.3,
     price: '$$$',
     time: 25,
     image: 'https://source.unsplash.com/400x300/?pizza'
-  },{
-    id:1,
+  },
+  {
+    id: 7,
     name: 'Spicy Biryani',
     cuisine: 'Indian',
     rating: 4.5,
@@ -61,7 +66,8 @@ const restaurants = [
     time: 30,
     image: 'https://source.unsplash.com/400x300/?biryani'
   },
-  {id:2,
+  {
+    id: 8,
     name: 'Pizza Paradise',
     cuisine: 'Italian',
     rating: 4.3,

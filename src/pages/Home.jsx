@@ -43,26 +43,6 @@ const promoBanners = [
   },
 ];
 
-const featuredRestaurants = [
-  {
-    name: "Spicy Biryani",
-    rating: 4.5,
-    time: 30,
-    image: "https://source.unsplash.com/400x300/?biryani",
-  },
-  {
-    name: "Chow Mein Express",
-    rating: 4.2,
-    time: 25,
-    image: "https://source.unsplash.com/400x300/?noodles",
-  },
-  {
-    name: "Pizza Paradise",
-    rating: 4.7,
-    time: 20,
-    image: "https://source.unsplash.com/400x300/?pizza",
-  },
-];
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -77,7 +57,7 @@ const Home = () => {
         // Replace with real fetch if needed
         const res = await fetch("https://dummyjson.com/posts");
         if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
+        await res.json();
 
         // Simulate restaurant objects
         setFeaturedRestaurants([

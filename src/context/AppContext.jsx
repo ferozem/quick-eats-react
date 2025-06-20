@@ -7,14 +7,12 @@ export function AppProvider({ children }) {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    console.log('[AppContext] Theme changed:', theme);
+    // Theme change side effects could be handled here
   }, [theme]);
 
   useEffect(() => {
-    console.log('[AppContext] Cart items updated:', cartItems);
+    // Cart items update side effects could be handled here
   }, [cartItems]);
-
-  console.log('[AppContext] AppProvider rendered');
 
   return (
     <AppContext.Provider value={{ cartItems, setCartItems, theme, setTheme }}>
@@ -25,6 +23,5 @@ export function AppProvider({ children }) {
 
 export function useAppContext() {
   const context = useContext(AppContext);
-  console.log('[AppContext] useAppContext hook called');
   return context;
 }
