@@ -140,7 +140,7 @@ const Home = () => {
         <CuisineChips />
         <section className="mt-8 px-4">
           <h2 className="text-2xl font-bold mb-4">Featured Restaurants</h2>
-          <div className="bg-white flex gap-4 overflow-x-auto pb-2 ">
+          <div className="bg-white flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
             {error ? (
               <div className="text-red-500 font-medium">⚠️ {error}</div>
             ) : loading ? (
@@ -164,7 +164,7 @@ const Home = () => {
                 },
               }}
             >
-          <div className="flex gap-4 overflow-x-auto pb-2 ">
+          <div className="flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
             
               {promoBanners.map((item, idx) => (
                 <motion.div
@@ -182,7 +182,7 @@ const Home = () => {
         </section>
         <section className="mt-10 px-4">
           <h2 className="text-2xl font-bold mb-4">What Our Users Say</h2>
-          <div className="flex gap-4 overflow-x-auto pb-2">
+          <div className="flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
             {testimonials.map((item, idx) => (
               <TestimonialCard key={idx} {...item} />
             ))}
@@ -197,12 +197,12 @@ const Home = () => {
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
               alt="Get it on Google Play"
-              className="h-12"
+              className="h-10 sm:h-12"
             />
             <img
               src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
               alt="Download on the App Store"
-              className="h-12"
+              className="h-10 sm:h-12"
             />
           </div>
         </section>

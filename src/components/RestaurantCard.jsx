@@ -1,6 +1,6 @@
 const RestaurantCard = ({ image, name, rating, time }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden w-64 shrink-0">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden w-60 shrink-0 sm:w-64 md:w-full">
       <img src={image} alt={name} className="h-40 w-full object-cover" />
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{name}</h3>

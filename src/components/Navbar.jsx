@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between items-center py-4 px-6 shadow-md bg-white dark:bg-gray-900">
-      <Link to="/" className="text-2xl font-bold text-red-600">
+      <Link to="/" className="text-xl sm:text-2xl font-bold text-red-600">
         QuickEats
       </Link>
       <div className="flex items-center gap-4">
