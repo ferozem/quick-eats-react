@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState } from "react";
+import { useCart } from '../context/CartContext';
 import { motion } from "framer-motion";
 
 const restaurantData = {
@@ -72,7 +73,7 @@ const Restaurant = () => {
   const { id } = useParams();
   const restaurant = restaurantData[id];
   const [selectedCategory, setSelectedCategory] = useState("Starters");
-  const [cart, setCart] = useState([]);
+  const { cart, addItem, totalPrice } = useCart();
 
   if (!restaurant) return <div className="p-6">Restaurant not found.</div>;
 
@@ -134,7 +135,13 @@ const Restaurant = () => {
               <h4 className="font-semibold text-gray-800">{dish.name}</h4>
               <p className="text-sm text-gray-500">₹ {dish.price}</p>
               <button
-                onClick={() => setCart([...cart, dish])}
+                onClick={() =>
+                  addItem({
+                    id: `${id}-${dish.name}`,
+                    name: dish.name,
+                    price: dish.price,
+                  })
+                }
                 className="mt-2 text-sm px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
               >
                 Add to Cart
@@ -172,13 +179,11 @@ const Restaurant = () => {
             <ul className="text-sm text-gray-700 space-y-1">
               {cart.map((item, i) => (
                 <li key={i}>
-                  {item.name} - ₹{item.price}
+                  {item.name} - ₹{item.price} x {item.quantity}
                 </li>
               ))}
             </ul>
-            <p className="mt-2 font-bold">
-              Total: ₹{cart.reduce((sum, item) => sum + item.price, 0)}
-            </p>
+            <p className="mt-2 font-bold">Total: ₹{totalPrice}</p>
           </motion.div>
         )}
       </div>
