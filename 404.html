@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+      // SPA fallback for GitHub Pages
+      (function() {
+        const redirect = sessionStorage.redirect;
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          window.location.replace(redirect);
+        } else {
+          const path = location.pathname.replace(/\/quick-eats-react\/?/, '/');
+          sessionStorage.redirect = path + location.search + location.hash;
+          window.location.replace('/quick-eats-react/');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
