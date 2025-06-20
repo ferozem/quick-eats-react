@@ -18,7 +18,10 @@ const Cart = () => {
             >
               <div>
                 <p className="font-medium">{item.name}</p>
-                <p className="text-sm text-gray-500">₹{item.price}</p>
+                <p className="text-sm text-gray-500">Price: ₹{item.price}</p>
+                <p className="text-sm text-gray-500">
+                  Subtotal: ₹{item.price * item.quantity}
+                </p>
               </div>
               <div className="flex items-center gap-2">
                 <input
@@ -40,7 +43,7 @@ const Cart = () => {
             </div>
           ))}
           <div className="font-bold text-lg">
-            Total ({totalItems} items): ₹{totalPrice}
+            Total Price ({totalItems} items): ₹{totalPrice}
           </div>
         </div>
       )}
