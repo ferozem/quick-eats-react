@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 const Cart = () => {
-  const { cart, totalItems, totalPrice, updateItemQuantity, removeItem } = useCart();
+  const {
+    cart,
+    totalItems,
+    totalPrice,
+    updateItemQuantity,
+    removeItem,
+    clearCart,
+  } = useCart();
+  const navigate = useNavigate();
   const [address, setAddress] = useState('');
   const [instructions, setInstructions] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -27,10 +36,10 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    // Front-end only confirmation
-    alert(
-      `Placing order using ${paymentMethod}\nAddress: ${address}\nInstructions: ${instructions}`
-    );
+    clearCart();
+    navigate('/order-confirmation', {
+      state: { address, totalPrice },
+    });
   };
 
   return (
