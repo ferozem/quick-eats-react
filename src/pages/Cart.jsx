@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 
 const Cart = () => {
   const { cart, totalItems, totalPrice, updateItemQuantity, removeItem } = useCart();
+  const [address, setAddress] = useState('');
+  const [instructions, setInstructions] = useState('');
+
+  const handleCheckout = () => {
+    // Placeholder action for proceeding to payment
+    alert(`Proceeding to payment with address: ${address}\nInstructions: ${instructions}`);
+  };
 
   return (
     <div className="min-h-screen px-4 py-8">
@@ -52,6 +59,32 @@ const Cart = () => {
           ))}
           <div className="font-bold text-lg">
             Total Price ({totalItems} items): ₹{totalPrice}
+          </div>
+          <div className="flex flex-col gap-4 pt-4">
+            <label className="block">
+              <span className="font-medium">Delivery Address</span>
+              <textarea
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className="mt-1 w-full p-2 border rounded"
+                required
+              />
+            </label>
+            <label className="block">
+              <span className="font-medium">Special Instructions (optional)</span>
+              <textarea
+                value={instructions}
+                onChange={(e) => setInstructions(e.target.value)}
+                className="mt-1 w-full p-2 border rounded"
+              />
+            </label>
+            <button
+              onClick={handleCheckout}
+              disabled={!address.trim()}
+              className={`mt-2 px-4 py-2 rounded text-white ${address.trim() ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-400 cursor-not-allowed'}`}
+            >
+              Proceed to Payment
+            </button>
           </div>
         </div>
       )}
