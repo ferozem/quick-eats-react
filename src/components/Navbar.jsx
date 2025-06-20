@@ -10,6 +10,9 @@ const Navbar = () => {
         <Link to="/browse" className="text-sm font-medium hover:text-red-500">
           Browse
         </Link>
+        <Link to="/cart" className="text-sm font-medium hover:text-red-500">
+          Cart
+        </Link>
       </div>
     </nav>
   );
