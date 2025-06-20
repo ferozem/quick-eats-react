@@ -24,18 +24,26 @@ const Cart = () => {
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <input
-                  type="number"
-                  min="1"
-                  value={item.quantity}
-                  onChange={(e) =>
-                    updateItemQuantity(item.id, parseInt(e.target.value, 10))
+                <button
+                  aria-label="Decrease quantity"
+                  onClick={() =>
+                    updateItemQuantity(item.id, Math.max(1, item.quantity - 1))
                   }
-                  className="w-16 border rounded p-1"
-                />
+                  className="px-2 py-1 border rounded"
+                >
+                  -
+                </button>
+                <span className="px-2">{item.quantity}</span>
+                <button
+                  aria-label="Increase quantity"
+                  onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                  className="px-2 py-1 border rounded"
+                >
+                  +
+                </button>
                 <button
                   onClick={() => removeItem(item.id)}
-                  className="text-red-600"
+                  className="text-red-600 ml-2"
                 >
                   Remove
                 </button>
