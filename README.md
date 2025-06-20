@@ -1,30 +1,54 @@
-# React + Vite
+# QuickEats
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+QuickEats is a demo food ordering interface built with **React**, **Vite**, and **Tailwind CSS**. The application lets users browse restaurants, add dishes to a cart, and place an order while demonstrating patterns for a modern single page app.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This front‑end prototype showcases responsive layouts, routing with React Router, and a simple global cart powered by React Context. Animations are handled by Framer Motion and all styling uses Tailwind CSS.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** with Vite
+- **React Router DOM** for client‑side routing
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **ESLint** for linting
 
-## ISSUES FIXED
+## Key Features
 
-Issue 1:  [plugin:vite:css] [postcss] It looks like you're trying to use tailwindcss directly as a PostCSS plugin. The PostCSS plugin has moved to a separate package, so to continue using Tailwind CSS with PostCSS you'll need to install @tailwindcss/postcss and update your PostCSS configuration.
+- Landing page with hero section and promotional banners
+- Restaurant browsing with search, filters, and "load more" functionality
+- Restaurant detail pages with categorized menus and customer reviews
+- Shopping cart with quantity updates, address input, and multiple payment methods
+- Order confirmation screen after checkout
+- Responsive design with dark mode‑friendly styles
 
-Fix: 
-  1. npm install -D @tailwindcss/postcss
-  2. Update postcss.config.js to
-    export default {
-      plugins: {
-        '@tailwindcss/postcss': {},
-        autoprefixer: {},
-      },
-    };
-    
-    
-Issue 2: Taiwind css not working
-Update index.css with @import "tailwindcss";
+## Screenshots
+
+![Home Page](screenshots/home.png)
+![Browse Restaurants](screenshots/browse.png)
+![Restaurant Detail](screenshots/restaurant.png)
+![Cart](screenshots/cart.png)
+
+*Screenshots above are placeholders. Replace them with real screenshots of your deployment.*
+
+## Live Demo
+
+The app can be deployed to any static hosting service. Example deployment: [QuickEats on Vercel](https://quick-eats-demo.vercel.app)
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+### Other Commands
+
+- `npm run lint` – run ESLint checks
+- `npm run build` – build for production
+- `npm run preview` – locally preview the production build
+
+---
+
+This project was bootstrapped with the Vite React template.
