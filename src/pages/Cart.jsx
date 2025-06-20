@@ -5,10 +5,32 @@ const Cart = () => {
   const { cart, totalItems, totalPrice, updateItemQuantity, removeItem } = useCart();
   const [address, setAddress] = useState('');
   const [instructions, setInstructions] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('');
+  const [upiId, setUpiId] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
+  const [cardExpiry, setCardExpiry] = useState('');
+  const [cardCvv, setCardCvv] = useState('');
+
+  const isPaymentValid = () => {
+    if (!paymentMethod) return false;
+    if (paymentMethod === 'UPI') {
+      return upiId.trim() !== '';
+    }
+    if (paymentMethod === 'Card') {
+      return (
+        cardNumber.trim() !== '' &&
+        cardExpiry.trim() !== '' &&
+        cardCvv.trim() !== ''
+      );
+    }
+    return true; // Cash on Delivery
+  };
 
   const handleCheckout = () => {
-    // Placeholder action for proceeding to payment
-    alert(`Proceeding to payment with address: ${address}\nInstructions: ${instructions}`);
+    // Front-end only confirmation
+    alert(
+      `Placing order using ${paymentMethod}\nAddress: ${address}\nInstructions: ${instructions}`
+    );
   };
 
   return (
@@ -78,12 +100,94 @@ const Cart = () => {
                 className="mt-1 w-full p-2 border rounded"
               />
             </label>
+            <div>
+              <p className="font-medium mb-2">Payment Method</p>
+              <label className="mr-4">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="UPI"
+                  checked={paymentMethod === 'UPI'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="mr-1"
+                />
+                UPI
+              </label>
+              <label className="mr-4">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="Card"
+                  checked={paymentMethod === 'Card'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="mr-1"
+                />
+                Card
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="payment"
+                  value="COD"
+                  checked={paymentMethod === 'COD'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="mr-1"
+                />
+                Cash on Delivery
+              </label>
+            </div>
+
+            {paymentMethod === 'UPI' && (
+              <label className="block">
+                <span className="font-medium">UPI ID</span>
+                <input
+                  type="text"
+                  value={upiId}
+                  onChange={(e) => setUpiId(e.target.value)}
+                  className="mt-1 w-full p-2 border rounded"
+                  placeholder="example@upi"
+                />
+              </label>
+            )}
+
+            {paymentMethod === 'Card' && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <label className="block md:col-span-2">
+                  <span className="font-medium">Card Number</span>
+                  <input
+                    type="text"
+                    value={cardNumber}
+                    onChange={(e) => setCardNumber(e.target.value)}
+                    className="mt-1 w-full p-2 border rounded"
+                  />
+                </label>
+                <label className="block">
+                  <span className="font-medium">Expiry</span>
+                  <input
+                    type="text"
+                    value={cardExpiry}
+                    onChange={(e) => setCardExpiry(e.target.value)}
+                    className="mt-1 w-full p-2 border rounded"
+                    placeholder="MM/YY"
+                  />
+                </label>
+                <label className="block">
+                  <span className="font-medium">CVV</span>
+                  <input
+                    type="password"
+                    value={cardCvv}
+                    onChange={(e) => setCardCvv(e.target.value)}
+                    className="mt-1 w-full p-2 border rounded"
+                  />
+                </label>
+              </div>
+            )}
             <button
               onClick={handleCheckout}
-              disabled={!address.trim()}
-              className={`mt-2 px-4 py-2 rounded text-white ${address.trim() ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-400 cursor-not-allowed'}`}
+              disabled={!(address.trim() && isPaymentValid())}
+              className={`mt-2 px-4 py-2 rounded text-white ${(address.trim() && isPaymentValid()) ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-400 cursor-not-allowed'}`}
             >
-              Proceed to Payment
+              Place Order
             </button>
           </div>
         </div>
