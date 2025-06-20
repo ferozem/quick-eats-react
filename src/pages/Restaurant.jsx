@@ -97,7 +97,7 @@ const Restaurant = () => {
           Avg Delivery Time: ⏱ {restaurant.time} mins
         </p>
         <p className="text-gray-700 text-sm">{restaurant.description}</p>
-        <div className="flex gap-4  mt-8">
+        <div className="flex flex-wrap gap-4 mt-8">
           {Object.keys(restaurant.menu).map((category) => (
             <button
               key={category}

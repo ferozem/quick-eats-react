@@ -104,25 +104,25 @@ const filteredRestaurants = restaurants.filter(r =>
       <select
   value={sortBy}
   onChange={e => setSortBy(e.target.value)}
-  className="mb-4 w-full max-w-xs p-2 border rounded"
+  className="mb-4 w-full max-w-xs p-2 border rounded sm:w-auto"
 >
   <option value="">Sort By</option>
   <option value="rating">Rating (High to Low)</option>
   <option value="time">Delivery Time (Fastest First)</option>
 </select>
       <div className="mb-6 flex flex-wrap gap-4">
-  <select value={selectedCuisine} onChange={e => setSelectedCuisine(e.target.value)} className="p-2 border rounded">
+  <select value={selectedCuisine} onChange={e => setSelectedCuisine(e.target.value)} className="p-2 border rounded w-full sm:w-auto">
     <option value="All">All Cuisines</option>
     <option value="Indian">Indian</option>
     <option value="Chinese">Chinese</option>
     <option value="Italian">Italian</option>
   </select>
-  <select value={minRating} onChange={e => setMinRating(Number(e.target.value))} className="p-2 border rounded">
+  <select value={minRating} onChange={e => setMinRating(Number(e.target.value))} className="p-2 border rounded w-full sm:w-auto">
     <option value="0">All Ratings</option>
     <option value="4">4+</option>
     <option value="4.5">4.5+</option>
   </select>
-  <select value={selectedPrice} onChange={e => setSelectedPrice(e.target.value)} className="p-2 border rounded">
+  <select value={selectedPrice} onChange={e => setSelectedPrice(e.target.value)} className="p-2 border rounded w-full sm:w-auto">
     <option value="All">All Prices</option>
     <option value="$">$</option>
     <option value="$$">$$</option>
@@ -131,8 +131,7 @@ const filteredRestaurants = restaurants.filter(r =>
 </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {sortedRestaurants.slice(0, visibleCount).map((rest, idx) => (
-        <Link to={`/restaurant/${rest.id}`}>
-            
+        <Link key={rest.id} to={`/restaurant/${rest.id}`}>
   <RestaurantCard key={idx} {...rest} />
         </Link>
 ))}
