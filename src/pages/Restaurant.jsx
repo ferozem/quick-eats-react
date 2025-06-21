@@ -2,76 +2,12 @@ import { useParams } from 'react-router-dom';
 import { useState } from "react";
 import { useCart } from '../context/CartContext';
 import { motion } from "framer-motion";
+import { restaurants } from '../data/restaurants';
 
-const restaurantData = {
-  1: {
-    name: "Spicy Biryani",
-    cuisine: "Indian",
-    rating: 4.5,
-    time: 30,
-    image:
-      "https://images.pexels.com/photos/16020573/pexels-photo-16020573.jpeg",
-    description: "Authentic Indian biryani with bold spices and aromatic rice.",
-    menu: {
-      Starters: [
-        { name: "Veg Spring Rolls", price: 120 },
-        { name: "Paneer Tikka", price: 180 },
-      ],
-      Mains: [
-        { name: "Butter Chicken", price: 240 },
-        { name: "Veg Biryani", price: 160 },
-      ],
-      Desserts: [
-        { name: "Gulab Jamun", price: 80 },
-        { name: "Rasgulla", price: 90 },
-      ],
-    },
-    reviews: [
-      {
-        name: "Aisha K.",
-        rating: 5,
-        text: "Delicious food and super quick delivery!",
-      },
-      { name: "Ravi T.", rating: 4, text: "Good quality, but a bit pricey." },
-    ],
-  },
-
-  2: {
-    name: "Pizza Paradise",
-    cuisine: "Italian",
-    rating: 4.7,
-    time: 20,
-    image: "https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg",
-    description: "Classic Italian pizzas with a modern twist.",
-    menu: {
-      Starters: [
-        { name: "Veg Spring Rolls", price: 120 },
-        { name: "Paneer Tikka", price: 180 },
-      ],
-      Mains: [
-        { name: "Butter Chicken", price: 240 },
-        { name: "Veg Biryani", price: 160 },
-      ],
-      Desserts: [
-        { name: "Gulab Jamun", price: 80 },
-        { name: "Rasgulla", price: 90 },
-      ],
-    },
-    reviews: [
-      {
-        name: "Aisha K.",
-        rating: 5,
-        text: "Delicious food and super quick delivery!",
-      },
-      { name: "Ravi T.", rating: 4, text: "Good quality, but a bit pricey." },
-    ],
-  },
-  // Add more if needed
-};
 
 const Restaurant = () => {
   const { id } = useParams();
-  const restaurant = restaurantData[id];
+  const restaurant = restaurants.find((r) => r.id === Number(id));
   const [selectedCategory, setSelectedCategory] = useState("Starters");
   const { cart, addItem, totalPrice } = useCart();
 

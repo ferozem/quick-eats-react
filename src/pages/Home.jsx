@@ -5,43 +5,11 @@ import TestimonialCard from "../components/TestimonialCard";
 import { useState, useEffect } from "react";
 import RestaurantSkeleton from "../components/RestaurantSkeleton";
 import { motion } from "framer-motion";
+import { promoBanners } from "../data/promoBanners";
+import { testimonials } from "../data/testimonials";
+import { restaurants } from "../data/restaurants";
 
-const testimonials = [
-  {
-    name: "Aisha K.",
-    quote:
-      "Super quick delivery! I was surprised how hot and fresh the food was.",
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
-  },
-  {
-    name: "Ravi T.",
-    quote: "Easy to use, fast, and great restaurant selection. My go-to app!",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-  },
-  {
-    name: "Fatima S.",
-    quote: "Love the offers and the simple interface. 10/10 experience!",
-    avatar: "https://randomuser.me/api/portraits/women/45.jpg",
-  },
-];
 
-const promoBanners = [
-  {
-    title: "Flat 50% OFF!",
-    code: "QUICKEATS50",
-    bg: "bg-gradient-to-r from-red-500 to-orange-400",
-  },
-  {
-    title: "Free Delivery",
-    code: "FREEDEL",
-    bg: "bg-gradient-to-r from-green-500 to-teal-400",
-  },
-  {
-    title: "20% Cashback",
-    code: "CASHBACK20",
-    bg: "bg-gradient-to-r from-indigo-500 to-purple-500",
-  },
-];
 
 
 const Home = () => {
@@ -59,27 +27,8 @@ const Home = () => {
         if (!res.ok) throw new Error("Failed to fetch");
         await res.json();
 
-        // Simulate restaurant objects
-        setFeaturedRestaurants([
-          {
-            name: "Spicy Biryani",
-            rating: 4.5,
-            time: 30,
-            image: "https://source.unsplash.com/400x300/?biryani",
-          },
-          {
-            name: "Chow Mein Express",
-            rating: 4.2,
-            time: 25,
-            image: "https://source.unsplash.com/400x300/?noodles",
-          },
-          {
-            name: "Pizza Paradise",
-            rating: 4.7,
-            time: 20,
-            image: "https://source.unsplash.com/400x300/?pizza",
-          },
-        ]);
+        // Simulated restaurant objects
+        setFeaturedRestaurants(restaurants.slice(0, 3));
         setError(null);
       } catch (err) {
         setError(err.message);

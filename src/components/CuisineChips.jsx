@@ -1,17 +1,4 @@
-const cuisines = [
-  "All",
-  "Indian",
-  "Chinese",
-  "Italian",
-  "Fast Food",
-  "Mexican",
-  "Thai",
-  "Desserts",
-  "Healthy",
-
-  
-  "South Indian",
-];
+import { cuisines } from "../data/cuisines";
 
 const CuisineChips = () => {
   return (

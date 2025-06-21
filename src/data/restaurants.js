@@ -1,0 +1,112 @@
+export const restaurants = [
+  {
+    id: 1,
+    name: "Spicy Biryani",
+    cuisine: "Indian",
+    rating: 4.5,
+    price: "$$",
+    time: 30,
+    image: "https://images.pexels.com/photos/16020573/pexels-photo-16020573.jpeg",
+    description: "Authentic Indian biryani with bold spices and aromatic rice.",
+    menu: {
+      Starters: [
+        { name: "Veg Spring Rolls", price: 120 },
+        { name: "Paneer Tikka", price: 180 }
+      ],
+      Mains: [
+        { name: "Butter Chicken", price: 240 },
+        { name: "Veg Biryani", price: 160 }
+      ],
+      Desserts: [
+        { name: "Gulab Jamun", price: 80 },
+        { name: "Rasgulla", price: 90 }
+      ]
+    },
+    reviews: [
+      { name: "Aisha K.", rating: 5, text: "Delicious food and super quick delivery!" },
+      { name: "Ravi T.", rating: 4, text: "Good quality, but a bit pricey." }
+    ]
+  },
+  {
+    id: 2,
+    name: "Pizza Paradise",
+    cuisine: "Italian",
+    rating: 4.7,
+    price: "$$$",
+    time: 20,
+    image: "https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg",
+    description: "Classic Italian pizzas with a modern twist.",
+    menu: {
+      Starters: [
+        { name: "Veg Spring Rolls", price: 120 },
+        { name: "Paneer Tikka", price: 180 }
+      ],
+      Mains: [
+        { name: "Butter Chicken", price: 240 },
+        { name: "Veg Biryani", price: 160 }
+      ],
+      Desserts: [
+        { name: "Gulab Jamun", price: 80 },
+        { name: "Rasgulla", price: 90 }
+      ]
+    },
+    reviews: [
+      { name: "Aisha K.", rating: 5, text: "Delicious food and super quick delivery!" },
+      { name: "Ravi T.", rating: 4, text: "Good quality, but a bit pricey." }
+    ]
+  },
+  {
+    id: 3,
+    name: "Spicy Biryani",
+    cuisine: "Indian",
+    rating: 4.5,
+    price: "$$",
+    time: 30,
+    image: "https://source.unsplash.com/400x300/?biryani"
+  },
+  {
+    id: 4,
+    name: "Pizza Paradise",
+    cuisine: "Italian",
+    rating: 4.3,
+    price: "$$$",
+    time: 25,
+    image: "https://source.unsplash.com/400x300/?pizza"
+  },
+  {
+    id: 5,
+    name: "Spicy Biryani",
+    cuisine: "Indian",
+    rating: 4.5,
+    price: "$$",
+    time: 30,
+    image: "https://source.unsplash.com/400x300/?biryani"
+  },
+  {
+    id: 6,
+    name: "Pizza Paradise",
+    cuisine: "Italian",
+    rating: 4.3,
+    price: "$$$",
+    time: 25,
+    image: "https://source.unsplash.com/400x300/?pizza"
+  },
+  {
+    id: 7,
+    name: "Spicy Biryani",
+    cuisine: "Indian",
+    rating: 4.5,
+    price: "$$",
+    time: 30,
+    image: "https://source.unsplash.com/400x300/?biryani"
+  },
+  {
+    id: 8,
+    name: "Pizza Paradise",
+    cuisine: "Italian",
+    rating: 4.3,
+    price: "$$$",
+    time: 25,
+    image: "https://source.unsplash.com/400x300/?pizza"
+  }
+];
