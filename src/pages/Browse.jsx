@@ -2,6 +2,7 @@ import RestaurantCard from '../components/RestaurantCard';
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { restaurants } from '../data/restaurants';
+import { cuisines } from '../data/cuisines';
 
 const Browse = () => {
   const [selectedCuisine, setSelectedCuisine] = useState('All');
@@ -43,11 +44,16 @@ const filteredRestaurants = restaurants.filter(r =>
   <option value="time">Delivery Time (Fastest First)</option>
 </select>
       <div className="mb-6 flex flex-wrap gap-4">
-  <select value={selectedCuisine} onChange={e => setSelectedCuisine(e.target.value)} className="p-2 border rounded w-full sm:w-auto">
-    <option value="All">All Cuisines</option>
-    <option value="Indian">Indian</option>
-    <option value="Chinese">Chinese</option>
-    <option value="Italian">Italian</option>
+  <select
+    value={selectedCuisine}
+    onChange={e => setSelectedCuisine(e.target.value)}
+    className="p-2 border rounded w-full sm:w-auto"
+  >
+    {cuisines.map(c => (
+      <option key={c} value={c}>
+        {c === 'All' ? 'All Cuisines' : c}
+      </option>
+    ))}
   </select>
   <select value={minRating} onChange={e => setMinRating(Number(e.target.value))} className="p-2 border rounded w-full sm:w-auto">
     <option value="0">All Ratings</option>

@@ -108,5 +108,68 @@ export const restaurants = [
     price: "$$$",
     time: 25,
     image: "https://source.unsplash.com/400x300/?pizza"
+  },
+  {
+    id: 9,
+    name: "Dragon Wok",
+    cuisine: "Chinese",
+    rating: 4.4,
+    price: "$$",
+    time: 25,
+    image: "https://source.unsplash.com/400x300/?chinese-food"
+  },
+  {
+    id: 10,
+    name: "Burger Hub",
+    cuisine: "Fast Food",
+    rating: 4.2,
+    price: "$",
+    time: 15,
+    image: "https://source.unsplash.com/400x300/?burger"
+  },
+  {
+    id: 11,
+    name: "Taco Fiesta",
+    cuisine: "Mexican",
+    rating: 4.6,
+    price: "$$",
+    time: 20,
+    image: "https://source.unsplash.com/400x300/?tacos"
+  },
+  {
+    id: 12,
+    name: "Thai Spice",
+    cuisine: "Thai",
+    rating: 4.5,
+    price: "$$",
+    time: 25,
+    image: "https://source.unsplash.com/400x300/?thai-food"
+  },
+  {
+    id: 13,
+    name: "Sweet Treats",
+    cuisine: "Desserts",
+    rating: 4.8,
+    price: "$",
+    time: 15,
+    image: "https://source.unsplash.com/400x300/?dessert"
+  },
+  {
+    id: 14,
+    name: "Green Delight",
+    cuisine: "Healthy",
+    rating: 4.3,
+    price: "$$",
+    time: 20,
+    image: "https://source.unsplash.com/400x300/?salad"
+  },
+  {
+    id: 15,
+    name: "Dosa Corner",
+    cuisine: "South Indian",
+    rating: 4.6,
+    price: "$",
+    time: 20,
+    image: "https://source.unsplash.com/400x300/?dosa"
   }
 ];
