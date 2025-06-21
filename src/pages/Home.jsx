@@ -16,6 +16,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [featuredRestaurants, setFeaturedRestaurants] = useState([]);
+  const [selectedCuisine, setSelectedCuisine] = useState("All");
 
   useEffect(() => {
     // Simulated fetch with try/catch
@@ -28,7 +29,10 @@ const Home = () => {
         await res.json();
 
         // Simulated restaurant objects
-        setFeaturedRestaurants(restaurants.slice(0, 3));
+        const filtered = restaurants.filter(
+          (r) => selectedCuisine === "All" || r.cuisine === selectedCuisine
+        );
+        setFeaturedRestaurants(filtered.slice(0, 3));
         setError(null);
       } catch (err) {
         setError(err.message);
@@ -38,7 +42,7 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [selectedCuisine]);
   return (
     <>
       <motion.div
@@ -66,7 +70,10 @@ const Home = () => {
             </button>
           </div>
         </section>
-        <CuisineChips />
+        <CuisineChips
+          selectedCuisine={selectedCuisine}
+          setSelectedCuisine={setSelectedCuisine}
+        />
         <section className="mt-8 px-4">
           <h2 className="text-2xl font-bold mb-4">Featured Restaurants</h2>
           <div className="bg-white flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
